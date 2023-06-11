@@ -33,3 +33,8 @@
 
 # macOS Finder garbage
 *.DS_store
+
+#JetBrains
+*.idea
+Cprimer/cmake-build-debug/*
+CPrimer/*.txt
