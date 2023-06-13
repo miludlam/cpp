@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+# macOS Finder garbage
+*.DS_store
+
+# JetBrains/CLion files
+cmake-build-debug
+CMakeLists.txt
+.idea
