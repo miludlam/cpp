@@ -1,4 +1,4 @@
-#include <iostream>
+#include "Sales_item.h"
 /*
  * Simple main function:
  * Read two numbers and write their sum
@@ -77,13 +77,35 @@ int main() {
     // }
 
     // Exercise 1.16 (1.4.3) - Write your own version of a program that prints the sum of a set of integers read from cin
-    int num = 0, sum =0;
-    std::cout << "Enter a series of integers separated by a space: ";
-    while (std::cin >> num) {
-        sum += num;
+    // int num = 0, sum =0;
+    // std::cout << "Enter a series of integers separated by a space: ";
+    // while (std::cin >> num) {
+    //     sum += num;
+    // }
+    // std::cout << std::endl;
+    // std::cout << "Sum: " << sum << std::endl;
+
+    // 1.20 Write a program that reads a set of book sales transactions, writing each transaction to the standard output
+    // Sales_item book;
+    // read ISBN, number of copies sold, and sales price
+    // std::cin >> book;
+    // write ISBN, number of copies sold, total revenue, and average price
+    // std::cout << book << std::endl;
+
+    // 1.21 Write a program that reads two Sales_item objects that have the same ISBN and produces their sum
+    // Sales_item book1, book2;
+    // std::cin >> book1 >> book2; // read a pair of transactions
+    // std::cout << book1 + book2 << std::endl; // print their sum
+
+    // 1.22 Write a program that reads several transactions for the same ISBN and print the sum of all transactions read
+    Sales_item book;
+    if (std::cin >> book) {
+        Sales_item temp;
+        while (std::cin >> temp) {
+            book += temp;
+        }
+        std::cout << book << std::endl;
     }
-    std::cout << std::endl;
-    std::cout << "Sum: " << sum << std::endl;
 
     return 0;
 }

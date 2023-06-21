@@ -31,6 +31,9 @@
 *.out
 *.app
 
+# Input/Output files
+# *.txt
+
 # macOS Finder garbage
 *.DS_store
 
