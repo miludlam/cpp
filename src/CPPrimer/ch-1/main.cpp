@@ -98,13 +98,48 @@ int main() {
     // std::cout << book1 + book2 << std::endl; // print their sum
 
     // 1.22 Write a program that reads several transactions for the same ISBN and print the sum of all transactions read
-    Sales_item book;
-    if (std::cin >> book) {
-        Sales_item temp;
-        while (std::cin >> temp) {
-            book += temp;
+    // Sales_item book;
+    // if (std::cin >> book) {
+    //     Sales_item temp;
+    //     while (std::cin >> temp) {
+    //         book += temp;
+    //     }
+    //     std::cout << book << std::endl;
+    // }
+
+    // From 1.5.2
+    // Sales_item item1, item2;
+    // std::cin >> item1 >> item2;
+    // // first check that item1 and item2 represent the same book
+    // if (item1.isbn() == item2.isbn()) {
+    //     std::cout << item1 + item2 << std::endl;
+    //     return 0;   // success
+    // } else {
+    //     std::cerr << "Data must refer to same ISBN"
+    //               << std::endl;
+    //     return -1;  // failure
+    // }
+
+    // Exercise section 1.5.2 //
+    // Exercise 1.23/1.24 - Write a program that reads several transactions
+    // and counts how many transactions occur for each ISBN. Test by giving
+    // multiple transactions representing multiple ISBNs. The test ISBNs
+    // should be grouped together
+    Sales_item currentBook, tempBook;
+    int bkCount = 0;
+    if(std::cin >> currentBook) {
+        bkCount++;
+        while (std::cin >> tempBook) {
+            if (tempBook.isbn() == currentBook.isbn()) {
+                bkCount++;
+            } else {
+                std::cout << currentBook.isbn() << " appears "
+                         << bkCount << " times." << std::endl;
+                currentBook = tempBook;
+                bkCount = 1;
+            }
         }
-        std::cout << book << std::endl;
+        std::cout << currentBook.isbn() << " appears " << bkCount << " times." << std::endl;
     }
 
     return 0;
